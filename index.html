@@ -228,12 +228,44 @@
             }
         }
         
+        @keyframes heroReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.9);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-10px) scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 20px 60px rgba(220, 38, 38, 0.4);
+            }
+            50% {
+                box-shadow: 0 25px 70px rgba(220, 38, 38, 0.6);
+            }
+        }
+        
         .slide.active .animate {
             animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         
         .slide.active .price-animate {
             animation: priceReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        .slide.active .hero-animate {
+            animation: heroReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        .hero-animate {
+            animation: pulse 3s ease-in-out infinite;
         }
         
         .animate { opacity: 0; }
@@ -393,11 +425,13 @@
                 </div>
             </div>
             
-            <div class="card animate animate-5" style="margin-top: 48px; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-color: #10b981; text-align: center;">
-                <div style="display: flex; align-items: center; justify-content: center; gap: 24px;">
-                    <div>
-                        <div style="font-size: 56px; font-weight: 800; color: #10b981;">One Visit</div>
-                        <div style="font-size: 18px; font-weight: 600; color: #047857; margin-top: 8px;">Complete your PRC in a single town hall visit</div>
+            <div class="card hero-animate animate-5" style="margin-top: 48px; background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); border: none; text-align: center; padding: 64px 48px; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%); pointer-events: none;"></div>
+                <div style="position: relative; z-index: 1;">
+                    <div style="font-size: 80px; font-weight: 900; color: white; line-height: 1; margin-bottom: 24px; text-shadow: 0 4px 20px rgba(0,0,0,0.3);">One Visit</div>
+                    <div style="font-size: 28px; font-weight: 600; color: white; opacity: 0.95;">Complete your PRC in a single town hall visit</div>
+                    <div style="margin-top: 32px; display: inline-block; padding: 12px 32px; background: rgba(255,255,255,0.2); border-radius: 100px; backdrop-filter: blur(10px);">
+                        <span style="font-size: 18px; font-weight: 700; color: white;">No Return Trips • No Forgotten Documents • Done Right There</span>
                     </div>
                 </div>
             </div>
